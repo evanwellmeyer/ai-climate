@@ -21,6 +21,6 @@ The emphasis is synthesis rather than hype, benchmark chasing, or exhaustive pap
 
 ## Who runs it
 
-The publication is run by Evan Wellmeyer, a PhD researcher in atmospheric science working at the intersection of machine learning and climate change. His research interests include machine learning for climate-model analysis and learning forced climate responses, particularly precipitation change.
+The publication is run by Evan Wellmeyer, a PhD researcher in atmospheric science working at the intersection of machine learning and climate modeling. His research interests include machine learning for climate-model analysis and learning forced climate responses, particularly precipitation change.
 
 AI × Climate is a publication rather than a personal portfolio. Its aim is to make technically serious developments easier to understand, compare, and evaluate.
