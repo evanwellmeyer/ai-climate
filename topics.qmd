@@ -1,0 +1,29 @@
+---
+title: "Topics"
+---
+
+The site uses a small set of recurring topic categories so developments can be followed across issues.
+
+## Climate & Earth-system models
+Data-driven models, hybrid models, learned parameterizations, emulators, and model acceleration.
+
+## Parameterizations
+Convection, clouds, radiation, turbulence, ocean mixing, land processes, and learned closures.
+
+## Prediction
+Weather, subseasonal-to-seasonal, decadal prediction, initialized climate prediction, and developments that bridge weather and climate.
+
+## Downscaling & regional climate
+Statistical and generative downscaling, super-resolution, bias correction, and regional emulation.
+
+## Extremes & impacts
+Precipitation and heat extremes, tropical cyclones, compound events, risk distributions, and event generation.
+
+## Observations & reanalysis
+Remote sensing, reconstruction, data assimilation, gap filling, and representation learning from Earth observations.
+
+## Scientific discovery
+Interpretability, causal inference, equation and process discovery, representation analysis, and ML used to learn about the Earth system rather than only predict it.
+
+## Methods
+Foundation models, graph neural networks, transformers, generative models, probabilistic learning, uncertainty quantification, and other methodological developments with broad climate relevance.

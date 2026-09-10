@@ -1,0 +1,42 @@
+---
+title: "Issue title"
+description: "One-sentence description for the home page and RSS feed."
+date: "YYYY-MM-DD"
+author: "Evan Wellmeyer"
+categories:
+  - "Topic"
+# image: image.png
+# draft: true
+---
+
+## The short version
+
+A compact overview of what changed and what matters.
+
+## What happened
+
+The development, paper, model, dataset, or result in context.
+
+## What they actually did
+
+The data, methods, experiments, comparisons, and evidence behind the claim.
+
+## Why it matters
+
+The scientific consequence—not only the benchmark result.
+
+## What I find interesting
+
+The synthesis: what a climate researcher might update in their mental model.
+
+## Limitations and open questions
+
+Generalization, nonstationarity, physical consistency, uncertainty, interpretation, or missing comparisons.
+
+## Where this fits in the field
+
+Connections to previous approaches and what the work suggests about where the field is going.
+
+## Papers and resources
+
+A curated set of primary papers, technical reports, code, datasets, or useful commentary. Cite bibliography entries with `[@citationkey]` and add their records to `references.bib`.

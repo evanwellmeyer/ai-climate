@@ -1,0 +1,61 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "posts/**/*.qmd"
+    - "!templates/"
+
+website:
+  title: "AI × Climate"
+  site-url: "https://evanwellmeyer.github.io/ai-climate/"
+  description: "A running view of artificial intelligence in climate science"
+  repo-url: https://github.com/evanwellmeyer/ai-climate
+  repo-actions: [source]
+  open-graph: true
+  twitter-card: true
+  search: true
+  navbar:
+    pinned: true
+    background: light
+    left:
+      - text: Issues
+        href: index.qmd
+      - text: Topics
+        href: topics.qmd
+      - text: About
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/evanwellmeyer/ai-climate
+        aria-label: GitHub
+      - icon: rss
+        href: index.xml
+        aria-label: RSS
+  page-footer:
+    left: "AI × Climate"
+    right:
+      - text: "RSS"
+        href: index.xml
+      - text: "GitHub"
+        href: https://github.com/evanwellmeyer/ai-climate
+
+format:
+  html:
+    theme: litera
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    anchor-sections: true
+    smooth-scroll: true
+    code-copy: true
+    citations-hover: true
+    footnotes-hover: true
+    link-external-newwindow: true
+    fig-cap-location: bottom
+    reference-location: margin
+
+bibliography: references.bib
+
+execute:
+  freeze: auto

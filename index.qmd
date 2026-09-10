@@ -1,0 +1,21 @@
+---
+title: "AI × Climate"
+subtitle: "A running review of artificial intelligence in climate research"
+page-layout: full
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: false
+  filter-ui: false
+  sort-ui: false
+  page-size: 12
+  feed:
+    type: partial
+    title: "AI × Climate"
+    description: "New developments and synthesis across AI and climate research."
+---
+
+AI × Climate follows consequential uses of artificial intelligence and machine learning across climate science: what is genuinely new, what is working, what remains uncertain, and how individual developments change the larger picture.
+
+The focus is scientific synthesis—not exhaustive paper lists, generic AI news, or benchmark hype. New issues are published roughly every **2–4 weeks**.

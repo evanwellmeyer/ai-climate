@@ -1,0 +1,8 @@
+author: "Evan Wellmeyer"
+date-format: "MMMM D, YYYY"
+title-block-banner: false
+freeze: true
+format:
+  html:
+    toc: true
+    toc-depth: 3

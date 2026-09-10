@@ -1,0 +1,86 @@
+:root {
+  --content-width: 780px;
+  --ink: #202724;
+  --muted: #5e6964;
+  --accent: #275f55;
+  --rule: #d9dfdb;
+}
+
+body {
+  color: var(--ink);
+  font-size: 1.04rem;
+  line-height: 1.72;
+}
+
+#quarto-content {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main.content {
+  max-width: var(--content-width);
+}
+
+.navbar {
+  border-bottom: 1px solid var(--rule);
+}
+
+.navbar-brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.quarto-title .title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.quarto-title .subtitle {
+  max-width: 760px;
+}
+
+h2 {
+  margin-top: 2.25rem;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+a {
+  color: var(--accent);
+}
+
+.quarto-listing-default .listing-item {
+  border-bottom-color: var(--rule);
+  padding-bottom: 1.5rem;
+}
+
+.listing-title a {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.listing-description {
+  line-height: 1.5;
+}
+
+.category {
+  font-size: 0.82rem;
+}
+
+.page-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 1rem;
+  }
+}
