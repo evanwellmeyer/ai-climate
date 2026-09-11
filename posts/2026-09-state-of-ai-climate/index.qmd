@@ -1,5 +1,5 @@
 ---
-title: "The State of AI in Climate Science in 2026"
+title: "The State of AI in Climate Science, September 2026"
 description: "Machine learning is not new to climate science. What has changed, and what has not, by 2026?"
 date: "2026-09-10"
 author: "Evan Wellmeyer"
