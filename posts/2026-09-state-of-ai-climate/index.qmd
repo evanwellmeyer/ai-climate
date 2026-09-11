@@ -149,31 +149,31 @@ Across these applications, a common set of problems determines whether progress 
 
 ### Generalization and nonstationarity
 
-Future climates are outside the historical training distribution. Even training on climate-model scenarios does not guarantee transfer to the real forced response. Tests across models, forcing levels, paleoclimates, abrupt-change experiments, and withheld regions are more informative than random train-test splits.
+Future climates are outside the historical training distribution. Even training on climate-model scenarios does not guarantee transfer to the real forced response. Recent warm-climate parameterization experiments and CO2-perturbation emulator studies show both why this test is essential and how much more demanding it is than interpolation within a reference climate [@han2025warmclimate; @clark2025ace2som]. Tests across models, forcing levels, paleoclimates, abrupt-change experiments, and withheld regions are more informative than random train-test splits.
 
 ### Physical consistency
 
-Exact conservation is not required of every diagnostic tool, but simulators and coupled components cannot accumulate small budget errors indefinitely. Constraints should be evaluated for what they guarantee and what they merely encourage statistically.
+Exact conservation is not required of every diagnostic tool, but simulators and coupled components cannot accumulate small budget errors indefinitely. Long-term emulator studies now assess physical-consistency diagnostics explicitly, while stable learned parameterizations show that online behavior can differ fundamentally from one-step offline skill [@guan2025lucie; @chen2025experience]. Constraints should be evaluated for what they guarantee and what they merely encourage statistically.
 
 ### Long-term stability and climate fidelity
 
-A stable model can have the wrong attractor. Long rollouts should be evaluated for mean state, variability, teleconnections, feedbacks, extremes, drift, and response—not only the absence of numerical failure.
+A stable model can have the wrong attractor. The distinction is visible in current long-integration studies of learned atmosphere and ocean emulators, which separately evaluate drift, mean state, variability, and extremes [@kochkov2024neuralgcm; @dheeshjith2025samudra; @guan2025lucie]. Long rollouts should be evaluated for mean state, variability, teleconnections, feedbacks, extremes, drift, and response—not only the absence of numerical failure.
 
 ### Uncertainty
 
-Fast deterministic inference is less valuable if it conceals initial-condition, parameter, scenario, structural, and emulator uncertainty. Different uncertainties require different ensembles and should not be collapsed into one confidence score.
+Fast deterministic inference is less valuable if it conceals initial-condition, parameter, scenario, structural, and emulator uncertainty. Generative weather forecasting and downscaling studies make a useful distinction between generating conditional variability and establishing that the resulting probabilities are calibrated [@price2025gencast; @hess2025downscaling; @schillinger2026enscale]. Different uncertainties require different ensembles and should not be collapsed into one confidence score.
 
 ### Interpretability and causality
 
-Post-hoc explanations can describe model sensitivity without identifying a physical cause. Causal claims require assumptions, interventions, or natural experiments that make the identification strategy explicit.
+Post-hoc explanations can describe model sensitivity without identifying a physical cause. Recent space-time causal discovery and causally informed parameterization studies make their assumptions and validation settings explicit rather than treating an explanatory plot as causal evidence [@nichol2025castle; @iglesiassuarez2024causal]. Causal claims require assumptions, interventions, or natural experiments that make the identification strategy explicit.
 
 ### Benchmarks and scientific value
 
-A benchmark rewards what it measures. Climate-relevant benchmarks must include distributional structure, conservation, regime shifts, coupled behavior, extremes, and out-of-distribution response. They should also ask whether a more complex model improves scientific decisions relative to a simpler baseline.
+A benchmark rewards what it measures. Internal variability can even reverse apparent emulator rankings, and the first rounds of online parameterization evaluation show that no single architecture wins on every meaningful metric [@lutjens2025benchmark; @lin2026climsim]. Climate-relevant benchmarks must include distributional structure, conservation, regime shifts, coupled behavior, extremes, and out-of-distribution response. They should also ask whether a more complex model improves scientific decisions relative to a simpler baseline.
 
 ### Infrastructure and reproducibility
 
-Large training datasets and expensive models can concentrate research capacity. Open evaluation data, documented preprocessing, reproducible baselines, and accessible pretrained models are not secondary concerns; they shape which claims the community can independently test.
+Large training datasets and expensive models can concentrate research capacity. The ClimSim competition and recent emulator perspectives illustrate the value of shared data, online evaluation, standardized benchmarks, and software designed around reproducibility [@lin2026climsim; @vankatwyk2026emulators]. Open evaluation data, documented preprocessing, reproducible baselines, and accessible pretrained models are not secondary concerns; they shape which claims the community can independently test.
 
 ## Where the field stands
 
