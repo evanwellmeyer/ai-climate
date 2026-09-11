@@ -1,6 +1,6 @@
 ---
 title: "The State of AI in Climate Science in 2026"
-description: "AI weather forecasting was the catalyst. The harder question is whether machine learning can change what climate science can simulate, observe, and understand."
+description: "Machine learning is not new to climate science. What has changed, and what has not, by 2026?"
 date: "2026-09-10"
 author: "Evan Wellmeyer"
 categories:
@@ -12,27 +12,29 @@ draft: true
 
 ## The short version
 
-The most visible success of artificial intelligence in the Earth sciences has been weather forecasting. In only a few years, machine-learning systems moved from coarse demonstrations to global forecasts that compete with leading numerical systems, generate probabilistic ensembles, and increasingly connect observations directly to forecasts. That progress is real. It is also not the same thing as solving climate modeling.
+Machine learning is not new to atmospheric science. Statistical post-processing, analog methods, neural networks, automated retrievals, downscaling, pattern recognition, and empirical parameterizations all have long histories in the field. Many researchers have used the label *machine learning* only recently for ideas that climate science has developed in other vocabularies for decades.
+
+Recent data-driven weather models are nonetheless a substantial technical development. They have brought new architectures, unusually large training datasets, rapid inference, and fresh attention to the possibility of learning parts of the Earth-system modeling workflow. But they are neither the beginning of machine learning in atmospheric science nor evidence that physical climate modeling has been superseded.
 
 Weather prediction asks how a known atmospheric state will evolve over days. Climate science often asks how the coupled Earth system responds to forcing it has not previously experienced, how its statistics change over decades, and why. A model can excel at interpolation within the historical record while being unreliable under a changed climate. It can reproduce a forecast metric without representing the process that gives the metric scientific meaning.
 
-By 2026, the center of gravity is therefore shifting. The important frontier is no longer simply whether neural networks can predict geophysical fields. It is whether they can remain stable when coupled, preserve distributions and budgets, respond credibly outside the training climate, quantify uncertainty, and help discriminate among scientific explanations.
+The useful question in 2026 is not whether AI has "changed everything." It is where modern machine learning adds capabilities that are genuinely useful for climate science, and where familiar problems—sampling, nonstationarity, physical consistency, uncertainty, and interpretation—remain. The demanding tests are whether learned components remain stable when coupled, preserve distributions and budgets, respond credibly outside the training climate, quantify uncertainty, and help discriminate among scientific explanations.
 
 The field is advancing along several distinct paths: learned forecast models; data-driven and hybrid climate simulators; parameterizations trained from high-resolution simulations; fast emulators of expensive models; generative downscaling; machine learning for observations and data assimilation; probabilistic models of extremes; and methods intended to extract physical relationships rather than only make predictions. These paths share tools, but they do not share the same standard of success.
 
 The central claim of this first issue is simple:
 
-> The transition that matters is from AI that reproduces outputs to AI that participates reliably in scientific inference.
+> The relevant question is not whether a model is called AI, but whether it participates reliably in scientific inference.
 
 That transition has begun, but it is incomplete.
 
-## Weather forecasting was the catalyst, not the destination
+## Weather forecasting is a useful reference point, not the origin story
 
-Modern AI weather models changed the expectations of both climate scientists and machine-learning researchers. Graph neural networks, transformers, neural operators, and generative models demonstrated that global atmospheric evolution contains enough learnable structure for fast data-driven forecasts to rival numerical weather prediction on many standard measures.
+Recent AI weather models have received more attention than most earlier uses of ML in atmospheric science. Graph neural networks, transformers, neural operators, and generative models have demonstrated that fast, data-driven global forecasts can be competitive with numerical weather prediction on many standard measures. This is important progress, but it should not be mistaken for a scientific rupture.
 
 The progression matters. Early headline results centered on deterministic medium-range forecasts. NeuralGCM then showed that a hybrid model—a differentiable dynamical core combined with learned components—could support deterministic forecasts, ensembles, and multi-decadal atmosphere-only simulations [@kochkov2024neuralgcm]. GenCast made probabilistic forecasting central rather than optional, using a diffusion model to generate ensembles of plausible 15-day trajectories [@price2025gencast]. Aardvark pushed farther upstream by learning a path from raw observations to global and local forecasts, reducing its dependence on a conventional numerical analysis at deployment time [@allen2025aardvark]. Aurora broadened the ambition from one forecasting task to a pretrained Earth-system model that could be adapted across atmospheric and environmental applications [@bodnar2025aurora].
 
-These systems matter to climate research for three reasons.
+They matter to climate research for three specific reasons.
 
 First, they prove that useful global geophysical models can be dramatically cheaper to run. That changes the feasible size of ensembles, the speed of sensitivity experiments, and access to sophisticated prediction tools.
 
@@ -42,7 +44,7 @@ Third, they have forced a productive reconsideration of which parts of the tradi
 
 But the weather results should not be overgeneralized. Most leading systems learn from reanalysis, which is not raw nature but a physically structured synthesis of observations and numerical modeling. Forecast skill over days does not establish a correct response to rising carbon dioxide. Stable rollouts do not by themselves establish correct climate statistics. And a lower average error can coexist with weaknesses in rare events, spatial structure, conservation, or ensemble calibration.
 
-Weather forecasting is best understood as the demonstration that triggered a larger research program. It is not the template against which every climate application should be judged.
+Weather forecasting is therefore a useful reference point for current capabilities and limits. It is not the origin story of ML in atmospheric science, nor the template against which every climate application should be judged.
 
 ## From learned forecasts to learned climate simulators
 
