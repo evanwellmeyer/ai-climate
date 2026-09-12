@@ -1,0 +1,11 @@
+---
+title: ""
+description: ""
+date: YYYY-MM-DD
+author: "Evan Wellmeyer"
+categories:
+  - ""
+draft: true
+---
+
+State the observation or question directly. Add context, evidence, and limitations in whatever structure the subject needs.

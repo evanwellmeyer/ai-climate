@@ -3,10 +3,11 @@ title: "Issue title"
 description: "One-sentence description for the home page and RSS feed."
 date: "YYYY-MM-DD"
 author: "Evan Wellmeyer"
+bibliography: references.bib
 categories:
   - "Topic"
 # image: image.png
-# draft: true
+draft: true
 ---
 
 ## The short version

@@ -1,0 +1,8 @@
+---
+title: "Notes"
+description: "Shorter observations, paper notes, and questions that do not need a full issue."
+---
+
+Notes are shorter and less formal than Issues or Deep Dives. They provide a place for a useful result, methodological question, figure, correction, or connection between papers without stretching it into a full article.
+
+No Notes have been published yet.

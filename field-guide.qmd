@@ -1,0 +1,65 @@
+---
+title: "Field Guide"
+description: "Selected sources and upcoming events for AI and climate research."
+toc: true
+---
+
+This page collects useful routes into the field rather than attempting to index everything. Inclusion is selective and does not imply endorsement of every claim or article from a source.
+
+## Sources worth following
+
+### Journals and research literature
+
+#### AI, data, and computational methods
+
+- [Artificial Intelligence for the Earth Systems](https://journals.ametsoc.org/aies) — the most directly relevant specialist venue for AI, ML, data science, and statistics across meteorology, climate, hydrology, and ocean science.
+- [Machine Learning: Science and Technology](https://iopscience.iop.org/journal/2632-2153) — methods-oriented ML for the sciences, including geoscience and climatology.
+- [Environmental Data Science](https://www.cambridge.org/core/journals/environmental-data-science) — environmental applications of data science and statistical/machine-learning methods.
+- [Geoscientific Model Development](https://gmd.copernicus.org/) — open review and publication of models, model components, and their evaluation; particularly valuable for reproducibility and model documentation.
+- [Journal of Advances in Modeling Earth Systems (JAMES)](https://agupubs.onlinelibrary.wiley.com/journal/19422466) — Earth-system and climate-model development, including learned components, emulation, and evaluation.
+
+#### Atmospheric and climate science
+
+- [Journal of Climate](https://journals.ametsoc.org/view/journals/clim/clim-overview.xml) — climate dynamics, variability, simulation, and prediction.
+- [Monthly Weather Review](https://journals.ametsoc.org/view/journals/mwre/mwre-overview.xml) — numerical weather prediction, data assimilation, and forecast methodology.
+- [Weather and Forecasting](https://journals.ametsoc.org/view/journals/wefo/wefo-overview.xml) — forecast systems, verification, and applications.
+- [Journal of the Atmospheric Sciences](https://journals.ametsoc.org/view/journals/atsc/atsc-overview.xml) — atmospheric dynamics, physical processes, and theory.
+- [Climate Dynamics](https://link.springer.com/journal/382) — climate-system dynamics, variability, and modeling.
+- [Quarterly Journal of the Royal Meteorological Society](https://rmets.onlinelibrary.wiley.com/journal/1477870x) — atmospheric science, numerical modeling, and forecasting research.
+- [Earth System Dynamics](https://esd.copernicus.org/) — Earth-system processes, feedbacks, and climate dynamics.
+
+#### Discovery tools
+
+- [arXiv: Atmospheric and Oceanic Physics](https://arxiv.org/list/physics.ao/recent) — useful for early access, but treat preprints as provisional until peer review and independent evaluation.
+- [Google Scholar: machine learning climate science](https://scholar.google.com/scholar?q=%22machine+learning%22+%22climate+science%22) — a broad search starting point, best refined by a scientific question rather than used as a feed.
+
+### Research groups and projects
+
+- [NSF NCAR AI for Earth System Science](https://ncarprojects.ucar.edu/ai) — community AI resources, benchmarking, training, and Earth-system research.
+- [ECMWF AIFS Blog](https://www.ecmwf.int/en/about/media-centre/aifs-blog) — operational ML forecasting, evaluation, data, and infrastructure from ECMWF.
+- [Anemoi](https://anemoi.readthedocs.io/) — ECMWF-led open-source infrastructure for ML weather and climate workflows.
+- [Climate Change AI](https://www.climatechange.ai/) — a broad ML-and-climate community; useful particularly for events, workshops, and its resources directory.
+- [Pangeo](https://pangeo-data.github.io/) — open-source tools and community infrastructure for scalable geoscience analysis.
+- [ClimateLearn](https://climatelearn.readthedocs.io/) — open-source benchmarks and tools for ML in weather and climate modeling.
+- [ClimSim](https://climsim.readthedocs.io/) — an open dataset and benchmark environment for learned atmospheric parameterization.
+
+### Talks, lectures, and other publications
+
+- [ECMWF’s Machine Learning in Weather and Climate course](https://learning.ecmwf.int/pages/ressources/pdf/MOOC_MLWC_Training_Programme.pdf) — a structured introduction through technical applications.
+- [NCAR AI4ESS portal](https://ncar.github.io/ai4ess/) — recorded training material and community resources for AI in Earth-system science.
+- [Pangeo Gallery](https://gallery.pangeo.io/) — reproducible computational examples using large geoscience datasets.
+- [ECMWF science blog](https://www.ecmwf.int/en/about/media-centre/science-blog) — accessible technical context on forecasting, reanalysis, and ML work.
+
+These links are a starting library, not a claim that every source is equally authoritative on every topic. Primary papers, documentation, and independent evaluation remain the preferred sources for individual articles.
+
+## Upcoming conferences and workshops
+
+Events are listed chronologically with the event dates, location or online status, and official link. This is a selective research calendar, not a comprehensive events feed. Last reviewed: 11 September 2026.
+
+- **14–18 September 2026 — [ECMWF Annual Seminar: Machine learning and data assimilation](https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwf-2026-events-programme)**. Reading, United Kingdom.
+- **7–11 December 2026 — [AGU26 Annual Meeting](https://www.agu.org/agu26)**. San Francisco, California, United States.
+- **10–14 January 2027 — [107th AMS Annual Meeting](https://ams.confex.com/ams/)**. Denver, Colorado, United States.
+- **4–9 April 2027 — [EGU General Assembly 2027](https://www.egu.eu/meetings/general-assembly/meetings/)**. Vienna, Austria, with hybrid participation.
+- **13–17 December 2027 — [AGU27 Annual Meeting](https://www.agu.org/meetings/all-meetings)**. Washington, DC, United States.
+
+For conferences without a clearly announced AI/ML program, the relevant sessions are usually distributed across atmospheric science, climate, data assimilation, Earth observations, and high-performance computing. Check the official program close to the abstract deadline rather than assuming an event will have a dedicated AI track.

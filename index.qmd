@@ -16,6 +16,6 @@ listing:
     description: "New developments and synthesis across AI and climate research."
 ---
 
-AI × Climate follows consequential uses of artificial intelligence and machine learning across climate science: what is genuinely new, what is working, what remains uncertain, and how individual developments change the larger picture.
+AI × Climate follows consequential uses of artificial intelligence across climate science: what is genuinely new, what is working, what remains uncertain, and how individual developments change the larger picture.
 
-The focus is scientific synthesis—not exhaustive paper lists, generic AI news, or benchmark hype. New issues are published roughly every **2–4 weeks**.
+The focus is scientific synthesis—not exhaustive paper lists, generic AI news, or benchmark hype.

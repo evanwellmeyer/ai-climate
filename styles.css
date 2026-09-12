@@ -74,6 +74,10 @@ a {
   font-size: 0.82rem;
 }
 
+table {
+  font-size: 0.9rem;
+}
+
 .page-footer {
   border-top: 1px solid var(--rule);
   color: var(--muted);
@@ -83,4 +87,5 @@ a {
   body {
     font-size: 1rem;
   }
+
 }

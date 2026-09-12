@@ -1,0 +1,10 @@
+---
+title: "Deep Dives"
+description: "Focused examinations of methods and scientific questions in AI and climate research."
+---
+
+Deep Dives are focused, durable articles about a particular scientific question, modeling choice, or family of methods. Unlike Issues, they do not need to summarize the state of the broader field.
+
+Possible subjects include how spherical neural operators differ from models trained on ordinary latitude–longitude domains, what generative downscaling actually learns, or how online parameterization tests differ from offline benchmarks.
+
+No Deep Dives have been published yet.

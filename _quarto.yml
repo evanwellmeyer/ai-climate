@@ -4,6 +4,8 @@ project:
   render:
     - "*.qmd"
     - "posts/**/*.qmd"
+    - "deep-dives/**/*.qmd"
+    - "notes/**/*.qmd"
     - "!templates/"
 
 website:
@@ -21,8 +23,16 @@ website:
     left:
       - text: Issues
         href: index.qmd
-      - text: Topics
-        href: topics.qmd
+      - text: Deep Dives
+        href: deep-dives.qmd
+      - text: Notes
+        href: notes.qmd
+      - text: Explore
+        menu:
+          - text: Topics
+            href: topics.qmd
+          - text: Field Guide
+            href: field-guide.qmd
       - text: About
         href: about.qmd
     right:
@@ -54,8 +64,6 @@ format:
     link-external-newwindow: true
     fig-cap-location: bottom
     reference-location: margin
-
-bibliography: references.bib
 
 execute:
   freeze: auto

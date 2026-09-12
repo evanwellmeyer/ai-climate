@@ -1,0 +1,29 @@
+---
+title: ""
+description: ""
+date: YYYY-MM-DD
+author: "Evan Wellmeyer"
+categories:
+  - ""
+draft: true
+---
+
+## The question
+
+What is the precise scientific or methodological question?
+
+## Why the distinction matters
+
+Explain what changes scientifically when choosing between the approaches.
+
+## How the approaches differ
+
+Compare assumptions, representations, training data, computation, and evaluation.
+
+## What the evidence shows
+
+Synthesize multiple strong sources and distinguish demonstrated results from reasonable expectations.
+
+## Limitations and open questions
+
+State what current studies have not established.

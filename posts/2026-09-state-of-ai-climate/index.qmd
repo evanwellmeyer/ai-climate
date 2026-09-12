@@ -1,7 +1,9 @@
 ---
 title: "The State of AI in Climate Science, September 2026"
 description: "Machine learning is not new to climate science. What has changed, and what has not, by 2026?"
-date: "2026-09-10"
+date: "2026-09-12"
+subtitle: "Issue 001"
+bibliography: references.bib
 author: "Evan Wellmeyer"
 categories:
   - State of the field
@@ -12,39 +14,19 @@ draft: true
 
 ## The short version
 
-Machine learning is not new to atmospheric science. Statistical post-processing, analog methods, neural networks, automated retrievals, downscaling, pattern recognition, and empirical parameterizations all have long histories in the field. Many researchers have used the label *machine learning* only recently for ideas that climate science has developed in other vocabularies for decades.
+Machine learning has a long history in atmospheric and ocean science. Neural networks were used for prediction, retrievals, statistical correction, and nonlinear data analysis well before today's global forecasting models. Hsieh's 2004 review documents applications ranging from radiative-transfer calculations to tropical Pacific prediction. A 2019 review already framed the connection between deep learning and physical understanding as a central Earth-system research problem [@hsieh2004nonlinear; @reichstein2019understanding].
 
-Recent data-driven weather models are nonetheless a substantial technical development. They have brought new architectures, unusually large training datasets, rapid inference, and fresh attention to the possibility of learning parts of the Earth-system modeling workflow. But they are neither the beginning of machine learning in atmospheric science nor evidence that physical climate modeling has been superseded.
+Recent developments concern the scale of these applications, the components being learned, and the experiments they make possible. Researchers are building global emulators, coupling learned components to numerical models, generating regional ensembles, and using observations to constrain simulations. The question for climate science is what these methods let us learn about the system and how reliably they do so.
 
-Weather prediction asks how a known atmospheric state will evolve over days. Climate science often asks how the coupled Earth system responds to forcing it has not previously experienced, how its statistics change over decades, and why. A model can excel at interpolation within the historical record while being unreliable under a changed climate. It can reproduce a forecast metric without representing the process that gives the metric scientific meaning.
+This issue provides a selective map of those uses as of September 2026. It concentrates on modeling, downscaling, observations, extremes, and scientific inference. Seasonal and decadal prediction, land processes, and biogeochemistry deserve fuller treatment in future issues.
 
-The useful question in 2026 is not whether AI has "changed everything." It is where modern machine learning adds capabilities that are genuinely useful for climate science, and where familiar problems—sampling, nonstationarity, physical consistency, uncertainty, and interpretation—remain. The demanding tests are whether learned components remain stable when coupled, preserve distributions and budgets, respond credibly outside the training climate, quantify uncertainty, and help discriminate among scientific explanations.
+## What global weather models contribute
 
-The field is advancing along several distinct paths: learned forecast models; data-driven and hybrid climate simulators; parameterizations trained from high-resolution simulations; fast emulators of expensive models; generative downscaling; machine learning for observations and data assimilation; probabilistic models of extremes; and methods intended to extract physical relationships rather than only make predictions. These paths share tools, but they do not share the same standard of success.
+Global ML forecasting provides useful examples of rapid inference, ensemble generation, and learning across different parts of a prediction system. NeuralGCM combines a differentiable dynamical core with learned components and was evaluated on forecasts and atmosphere-only climate simulations [@kochkov2024neuralgcm]. GenCast uses diffusion to generate ensembles of 15-day weather trajectories [@price2025gencast]. Aardvark learns a route from observations to forecasts, while Aurora explores pretraining and adaptation across several atmospheric and environmental tasks [@allen2025aardvark; @bodnar2025aurora].
 
-The central claim of this first issue is simple:
+These results offer architectures and training methods for related climate applications. Faster inference can make larger ensembles practical, although training costs, data preparation, hardware, and access to model weights affect who can use that capability.
 
-> The relevant question is not whether a model is called AI, but whether it participates reliably in scientific inference.
-
-That transition has begun, but it is incomplete.
-
-## Weather forecasting is a useful reference point, not the origin story
-
-Recent AI weather models have received more attention than most earlier uses of ML in atmospheric science. Graph neural networks, transformers, neural operators, and generative models have demonstrated that fast, data-driven global forecasts can be competitive with numerical weather prediction on many standard measures. This is important progress, but it should not be mistaken for a scientific rupture.
-
-The progression matters. Early headline results centered on deterministic medium-range forecasts. NeuralGCM then showed that a hybrid model—a differentiable dynamical core combined with learned components—could support deterministic forecasts, ensembles, and multi-decadal atmosphere-only simulations [@kochkov2024neuralgcm]. GenCast made probabilistic forecasting central rather than optional, using a diffusion model to generate ensembles of plausible 15-day trajectories [@price2025gencast]. Aardvark pushed farther upstream by learning a path from raw observations to global and local forecasts, reducing its dependence on a conventional numerical analysis at deployment time [@allen2025aardvark]. Aurora broadened the ambition from one forecasting task to a pretrained Earth-system model that could be adapted across atmospheric and environmental applications [@bodnar2025aurora].
-
-They matter to climate research for three specific reasons.
-
-First, they prove that useful global geophysical models can be dramatically cheaper to run. That changes the feasible size of ensembles, the speed of sensitivity experiments, and access to sophisticated prediction tools.
-
-Second, they provide architectures and training strategies that can be adapted to seasonal prediction, model emulation, downscaling, data assimilation, and coupled simulation.
-
-Third, they have forced a productive reconsideration of which parts of the traditional pipeline are indispensable. If the forecast model can be learned, can the observation operator, assimilation system, parameterizations, or coupled components be learned as well?
-
-But the weather results should not be overgeneralized. Most leading systems learn from reanalysis, which is not raw nature but a physically structured synthesis of observations and numerical modeling. Forecast skill over days does not establish a correct response to rising carbon dioxide. Stable rollouts do not by themselves establish correct climate statistics. And a lower average error can coexist with weaknesses in rare events, spatial structure, conservation, or ensemble calibration.
-
-Weather forecasting is therefore a useful reference point for current capabilities and limits. It is not the origin story of ML in atmospheric science, nor the template against which every climate application should be judged.
+The distinction between weather and climate evaluation remains essential. Forecast skill over days does not establish a credible response to changing greenhouse gases. Reanalysis combines observations with numerical modeling and assimilation assumptions. A model's errors and dependencies therefore need to be understood alongside its forecast scores [@kochkov2024neuralgcm; @arcucci2026assimilation].
 
 ## From learned forecasts to learned climate simulators
 
@@ -52,17 +34,17 @@ A climate simulator must do more than remain numerically alive for a long time. 
 
 There are two broad strategies. Fully data-driven models learn nearly the entire state transition. Hybrid models retain an explicit numerical core or physical components and use machine learning where conventional formulations are expensive, uncertain, or incomplete.
 
-NeuralGCM is an important hybrid example because its long integrations reproduced multiple atmospheric climate statistics while retaining resolved dynamics [@kochkov2024neuralgcm]. Its limitation is equally instructive: the reported model did not extrapolate to substantially different future climates. That is not a footnote. It marks the difference between reproducing a historical attractor and predicting a forced response. Work coupling ACE2 to a slab ocean takes a more direct step toward the latter question, evaluating equilibrium and transient responses across changed CO2 concentrations [@clark2025ace2som].
+NeuralGCM is an important hybrid example because its long integrations reproduced multiple atmospheric climate statistics while retaining resolved dynamics [@kochkov2024neuralgcm]. Its limitation is equally instructive: the reported model did not extrapolate to substantially different future climates. Reproducing historical climate statistics and predicting a forced response require different tests. Work coupling ACE2 to a slab ocean takes a more direct step toward the latter question, evaluating equilibrium and transient responses across changed CO$_2$ concentrations. It reproduced important aspects of its reference model’s response, but abrupt quadrupling of CO$_2$ produced excessively rapid atmospheric warming associated with energy non-conservation [@clark2025ace2som].
 
-Work on coupled emulators is beginning to expose the next layer of difficulty. Samudra has shown that a learned global ocean emulator can reproduce vertical structure and interannual variability without drift in long integrations. But the same study found a consequential tradeoff: configurations that remained stable struggled to reproduce the magnitude of externally forced trends [@dheeshjith2025samudra]. SamudrACE then couples learned atmosphere and three-dimensional ocean components and can produce centuries-long simulations with atmosphere, ocean, sea ice, and surface variables [@duncan2025samudrace]. Results of this kind are scientifically interesting because coupled variability—ENSO is the obvious test—cannot be recovered by treating sea-surface temperatures as prescribed boundary conditions.
+Work on coupled emulators is beginning to expose the next layer of difficulty. Samudra has shown that a learned global ocean emulator can reproduce vertical structure and interannual variability without drift in long integrations. But the same study found a consequential tradeoff: configurations that remained stable struggled to reproduce the magnitude of externally forced trends [@dheeshjith2025samudra]. SamudrACE then couples learned atmosphere and three-dimensional ocean components and can produce centuries-long simulations with atmosphere, ocean, sea ice, and surface variables [@duncan2026samudrace]. Interactive coupling allows tests of internally generated ocean–atmosphere variability, including the El Niño–Southern Oscillation (ENSO). Prescribed sea-surface temperatures allow atmospheric responses to be studied, but do not test the feedbacks that generate coupled variability.
 
 Yet even a coupled emulator generally learns a reference model, not the Earth directly. Its speed can enable experiments that the parent simulator makes impractical, but it may also inherit the parent's structural errors and cannot automatically be trusted in forcing regimes absent from training. The honest description is often *emulator of a model climate*, not replacement for a climate model or discovery of the climate system.
 
 The most convincing future evaluations will therefore resemble climate-model evaluation rather than weather leaderboards. They will test responses across forcing levels, energy and water budgets, modes of variability, feedbacks, extremes, and out-of-distribution climates. They will also compare against simple baselines and ask whether the learned system contributes information beyond efficiently reproducing its training simulator.
 
-## Parameterizations are becoming a coupled-learning problem
+## Evaluating learned parameterizations after coupling
 
-Subgrid parameterization may be the area where machine learning most directly confronts a longstanding scientific limitation. Clouds, convection, turbulence, ocean mixing, radiation, and land processes operate below the resolved grid yet influence circulation and climate sensitivity. High-resolution simulations can provide training targets that conventional parameterizations struggle to encode.
+Subgrid parameterization may be the area where machine learning most directly confronts a longstanding scientific limitation. Models parameterize the effects of unresolved clouds, convection, turbulence, ocean mixing, and land processes; they also approximate radiative transfer. These components influence circulation and climate sensitivity. High-resolution simulations can provide training targets that conventional parameterizations struggle to encode.
 
 The early version of this idea sounded straightforward: run an expensive cloud-resolving model, coarse-grain its output, train a neural network to predict tendencies, and insert the network into a global model. In practice, a parameterization with excellent offline scores can destabilize its host model. Small errors alter the resolved state, which moves the model away from the training distribution, which produces larger errors. The parameterization and the circulation form a coupled dynamical system; evaluating one as a static regression misses the main problem.
 
@@ -87,47 +69,47 @@ Their immediate value is computational. A sufficiently faithful emulator can fil
 
 This is why the emerging proposal to co-design simulators and emulators is more compelling than treating emulation as post-processing [@vankatwyk2026emulators]. Existing atmospheric emulators already illustrate the possible gain: ACE has been applied to E3SM's atmosphere with attention to precipitation fidelity, while LUCIE evaluated long integrations and large ensembles with explicit physical-consistency diagnostics [@duncan2024ace; @guan2025lucie]. A future modeling campaign could choose expensive simulations partly for the information they add to an emulator, use uncertainty estimates to identify where new simulations are needed, and provide standardized data and benchmarks for downstream analysis.
 
-But an emulator's epistemic status should remain explicit. It can interpolate a simulator very accurately and still tell us nothing new about whether that simulator is right. It can generate a dense ensemble whose apparent precision hides sparse training support. And speed does not repair structural uncertainty. This is not merely hypothetical: after internal variability was treated more carefully, a recent benchmark analysis found that simple pattern scaling remained more accurate for temperature, whereas the deep-learning emulator regained an advantage for precipitation [@lutjens2025benchmark].
+An emulator's relationship to its training simulator needs to remain explicit. It can interpolate a simulator very accurately and still tell us nothing new about whether that simulator is right. It can generate a dense ensemble whose apparent precision hides sparse training support. And speed does not repair structural uncertainty. This is not merely hypothetical: after internal variability was treated more carefully, a recent benchmark analysis found that simple pattern scaling remained more accurate for temperature, whereas the deep-learning emulator regained an advantage for precipitation [@lutjens2025benchmark].
 
 The strongest use is therefore often a partnership: the simulator supplies physically coherent counterfactual experiments; the emulator expands their coverage; observations constrain both; and uncertainty determines where further computation is valuable.
 
-## Downscaling is moving from one answer to a distribution
+## Downscaling and conditional variability
 
-Regional climate information is both scientifically difficult and societally important. Coarse global models do not resolve local terrain, convection, and many extremes. Traditional statistical downscaling can be efficient but often smooths variability or relies on stationarity assumptions. Dynamical downscaling retains more physics but is computationally expensive.
+Regional climate information is both scientifically difficult and societally important. Coarse global models do not resolve local terrain, convection, and many extremes. Statistical downscaling includes both deterministic and stochastic approaches; transfer to a changed climate depends on how their learned relationships respond to nonstationarity. Dynamical downscaling retains more physics but is computationally expensive.
 
-Generative machine learning reframes the problem. A coarse state does not determine one unique fine-scale state, so a downscaler should often estimate a conditional distribution rather than a single high-resolution image. Diffusion models, flows, and other stochastic approaches can generate multiple locally detailed realizations consistent with the large-scale conditions.
+Generative machine learning offers additional ways to model unresolved variability. A coarse state does not determine one unique fine-scale state, so a downscaler should often estimate a conditional distribution rather than a single high-resolution image. Diffusion models, flows, and other stochastic approaches can generate multiple locally detailed realizations consistent with the large-scale conditions.
 
-Recent methods have demonstrated scale-adaptive, uncertainty-aware generation of high-resolution Earth-system fields [@hess2025downscaling]. EnScale extends this direction to temporally consistent, multivariate generative downscaling and evaluates distribution tails through quantile-based metrics that include precipitation [@schillinger2026enscale]. The advance is not simply sharper-looking maps. It is the possibility of representing unresolved variability and producing ensembles at a cost compatible with risk analysis.
+Recent methods have demonstrated scale-adaptive, uncertainty-aware generation of high-resolution Earth-system fields [@hess2025downscaling]. EnScale jointly downscales multiple variables; its EnScale-t variant adds temporal consistency. The study evaluates distribution tails through quantile-based metrics that include precipitation [@schillinger2026enscale]. These methods provide ways to represent unresolved variability and generate ensembles for subsequent climate analysis.
 
 The caution is that visual realism is a weak validation criterion. A useful climate downscaler must preserve temporal coherence, multivariate relationships, spatial dependence, extremes, and responses to climate change. It must also separate uncertainty inherited from the global model from uncertainty introduced by the downscaling method. A generated storm texture can look convincing while having the wrong frequency, persistence, or thermodynamic scaling.
 
 Downscaling is therefore one of the clearest places where proper probabilistic evaluation—not image quality—will determine whether generative AI becomes scientifically useful.
 
-## Observations and data assimilation may be the quieter revolution
+## Learning from incomplete observations
 
-Climate knowledge depends on incomplete, heterogeneous observations. Satellites change, stations move, retrieval algorithms introduce assumptions, and many variables are only indirectly observed. Machine learning is already used to fill gaps, reconstruct fields, and extract structure from high-dimensional Earth observations [@bracco2025physics]. Recent deep-learning reconstruction of Antarctic surface temperatures provides one concrete example, and makes clear why independent validation against withheld observations remains essential [@wang2025antarctic].
+Climate knowledge depends on incomplete, heterogeneous observations. Satellites change, stations move, retrieval algorithms introduce assumptions, and many variables are only indirectly observed. Machine learning is already used to fill gaps, reconstruct fields, and extract structure from high-dimensional Earth observations [@bracco2025physics]. Recent deep-learning reconstruction of Antarctic surface temperatures provides one concrete example, and makes clear why independent validation against withheld observations remains essential [@ma2025antarctic].
 
 The convergence with data assimilation is particularly important. Data assimilation combines observations, a forecast model, and uncertainty to estimate the evolving state of the Earth system. Machine learning can emulate expensive observation operators, learn model error, estimate covariance structure, accelerate inference, or approximate parts of the assimilation cycle. Conversely, data assimilation offers machinery for constraining learned models with observations and propagating uncertainty [@arcucci2026assimilation]. Proof-of-concept work has used ML to accelerate high-resolution observation handling [@howard2024assimilation], while recent coupled-model work uses assimilation increments to learn systematic ocean-model error [@verma2026oceanerror].
 
 This area complicates claims of a clean replacement of physics by data. Many successful AI models are trained on reanalysis and therefore inherit the products of data assimilation and numerical modeling. End-to-end forecasting systems make the dependency more visible by attempting to learn state estimation and forecasting together, but they do not eliminate the need to reason about observational error, sampling, and physical consistency.
 
-For climate, the prize is larger than a better initial condition. Better integration of observations and models could improve reanalysis, extend records, identify model-error patterns, and provide more direct constraints on forced responses. The risk is that learned reconstructions make uncertain or missing information look complete. Traceable uncertainty will matter as much as spatial coverage.
+For climate, the potential uses extend beyond better initial conditions. Better integration of observations and models could improve reanalysis, extend records, identify model-error patterns, and provide more direct constraints on forced responses. The risk is that learned reconstructions make uncertain or missing information look complete. Traceable uncertainty will matter as much as spatial coverage.
 
-## Extremes make probability unavoidable
+## Extremes and probabilistic evaluation
 
 Climate risk is often controlled by distribution tails, spatial dependence, and compound events rather than mean conditions. This exposes the weakness of deterministic models optimized for average error. A prediction close to the conditional mean can score well while suppressing the very extremes that matter.
 
-Generative weather models such as GenCast demonstrate that learned ensembles can represent multiple plausible trajectories rather than a single smoothed future [@price2025gencast]. Similar ideas are entering downscaling, event generation, tropical-cyclone modeling, and estimates of precipitation and heat extremes. At regional scale, AI systems are also being evaluated directly for atmospheric rivers and extreme precipitation rather than only average forecast error [@pan2025regionalai].
+Generative weather models such as GenCast demonstrate that learned ensembles can represent multiple plausible trajectories rather than a single smoothed future [@price2025gencast]. Generative downscaling also provides a route to sampling fine-scale variability conditional on larger-scale fields [@hess2025downscaling; @schillinger2026enscale]. At regional scale, AI systems are also being evaluated directly for atmospheric rivers and extreme precipitation rather than only average forecast error [@banomedina2025regionalai].
 
 The scientific challenge is data scarcity. The rarest events are, by definition, poorly sampled. Historical observations are short relative to many return periods, and the distribution itself changes with forcing. A flexible generative model can reproduce or amplify patterns without learning the correct causal response to warming.
 
 Evaluation must therefore connect distributional skill to process. Does the model reproduce known thermodynamic scaling? Are compound dependencies credible? Are ensemble probabilities calibrated in held-out periods and regions? Do tail changes persist under alternative data sources and model configurations? Can the system express that it does not know?
 
-For extremes, uncertainty quantification is not a decorative addition. It is the product.
+For climate-risk applications, the probabilities and their reliability are part of the result being evaluated.
 
-## Prediction is not yet scientific understanding
+## Using ML for scientific discovery
 
-The most important opportunity is also the easiest to oversell: using machine learning to learn about the climate system.
+Scientific discovery is a particular focus of this publication: using ML to identify physical relationships, constrain explanations, and guide experiments [@hsieh2004nonlinear; @reichstein2019understanding].
 
 High-capacity models can detect regimes, compress complex fields, identify precursors, estimate nonlinear relationships, and rank influential variables. Interpretable models and causal methods can help generate hypotheses. Process-based machine learning can combine flexible estimation with relationships chosen for scientific meaning. For example, observationally trained relationships have been used to constrain regional warming projections, with an explicit focus on process-informed transfer rather than raw pattern matching [@wilkinson2025constraints]. Causal discovery has also been applied to high-dimensional space-time climate data, including a study of the atmospheric response to the Pinatubo eruption [@nichol2025castle].
 
@@ -141,15 +123,28 @@ Machine learning contributes to discovery when it is embedded in a chain of evid
 4. targeted observations or controlled simulations challenge that hypothesis;
 5. the result changes an explanation, parameterization, or prediction in a traceable way.
 
-This standard is more demanding than benchmark improvement, but it is also where AI could have its largest scientific impact. Climate datasets are too large and nonlinear to inspect exhaustively, while climate theory alone cannot specify every useful representation. The productive role for machine learning is to help navigate the space between data and mechanism.
+This requires evidence beyond predictive accuracy. Climate datasets are too large and nonlinear to inspect exhaustively, while climate theory alone cannot specify every useful representation. The productive role for machine learning is to help navigate the space between data and mechanism.
+
+| Application | What success requires | Main unresolved test |
+|---|---|---|
+| Weather prediction | Forecast skill and calibrated probabilities | Performance on rare events and in operations |
+| Climate simulation | Stable and credible climate statistics | Response to forcing outside the training data |
+| Parameterization | Skill after coupling to the host model | Stability and transfer across climates and models |
+| Emulation | Fidelity to the source simulator | Structural uncertainty and sparse training support |
+| Downscaling | Coherent conditional distributions | Nonstationarity and multivariate extremes |
+| Observations and assimilation | Accurate state estimates with traceable uncertainty | Independent validation and changing observing systems |
+| Extremes | Credible tails, dependencies, and event probabilities | Rare-event sampling and response to warming |
+| Scientific discovery | Reproducible, testable relationships | Causal validity and independent confirmation |
+
+: Different applications require different evidence. A strong result under one standard should not be silently promoted into a broader scientific claim. {#tbl-evidence}
 
 ## The unresolved questions
 
-Across these applications, a common set of problems determines whether progress is scientific or mainly computational.
+Across these applications, several recurring questions help determine what a result establishes and where it can be used. Computational advances can be scientifically valuable; the task is to connect them to a demonstrated capability.
 
 ### Generalization and nonstationarity
 
-Future climates are outside the historical training distribution. Even training on climate-model scenarios does not guarantee transfer to the real forced response. Recent warm-climate parameterization experiments and CO2-perturbation emulator studies show both why this test is essential and how much more demanding it is than interpolation within a reference climate [@han2025warmclimate; @clark2025ace2som]. Tests across models, forcing levels, paleoclimates, abrupt-change experiments, and withheld regions are more informative than random train-test splits.
+Changed forcing can move relevant relationships and combinations of variables beyond the historical training distribution. Even training on climate-model scenarios does not guarantee transfer to the real forced response. Recent warm-climate parameterization experiments and CO$_2$-perturbation emulator studies show both why this test is essential and how much more demanding it is than interpolation within a reference climate [@han2025warmclimate; @clark2025ace2som]. Tests across models, forcing levels, paleoclimates, abrupt-change experiments, and withheld regions are more informative than random train-test splits.
 
 ### Physical consistency
 
@@ -177,12 +172,13 @@ Large training datasets and expensive models can concentrate research capacity. 
 
 ## Where the field stands
 
-In 2026, it is no longer credible to dismiss AI in climate science as a collection of toy demonstrations. Learned global forecasts work. Hybrid climate integrations can remain stable for years. Generative methods can represent unresolved regional variability. Coupled emulators are beginning to reproduce internally generated climate modes. Machine learning is entering data assimilation and process-based inference.
+The studies discussed here show several distinct contributions: faster simulation, learned process representations, conditional ensembles, observational reconstruction, and methods for investigating physical relationships. Each contribution has different requirements for validation. Stability, speed, and forecast accuracy are useful results, but none alone establishes that a model responds correctly to climate change.
 
-It is equally premature to describe this as a wholesale replacement of physical climate modeling. The strongest systems remain dependent on reanalysis, high-resolution simulation, conventional model output, physical cores, or combinations of all four. Their hardest tests—changed forcing, rare extremes, coupled feedbacks, uncertainty, and causal interpretation—are precisely the tests most important for climate science.
+Much of this work depends on combinations of observations, reanalysis, numerical simulation, and physical reasoning. The productive questions concern how these sources of information fit together: what a learned component adds, which errors it inherits, and what experiments can distinguish a useful approximation from a misleading one.
 
-The likely future is not a contest with one winner. It is a modeling ecosystem in which numerical simulators, learned components, emulators, observations, and theory play different roles. The important research question is not whether a model is labeled *AI* or *physics-based*. It is what information went into it, what constraints it respects, what it can be trusted to do, and what new scientific conclusion becomes possible because it exists.
-
-That is the standard this publication will use: not whether a new model is impressive, but whether it changes how we understand, simulate, observe, or predict the climate system—and whether the evidence supports that change.
+For future issues, I will follow both methodological developments and the evidence for their scientific value. The central question is how ML changes what climate science can understand, simulate, observe, and predict—and where its limits remain.
 
 ## References
+
+::: {#refs}
+:::

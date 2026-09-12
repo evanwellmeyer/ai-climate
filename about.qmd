@@ -2,11 +2,11 @@
 title: "About"
 ---
 
-**AI × Climate** is an independent running review of artificial intelligence and machine learning in climate research.
+**AI × Climate** is an independent running review of machine learning in climate research.
 
-The goal is not to catalog every new paper. It is to identify developments that materially change how researchers **observe, understand, simulate, or predict the climate system**, and to place those developments in context.
+The goal is to follow developments that materially change how researchers **observe, understand, simulate, or predict the climate system**, and to place those developments in context.
 
-Coverage includes climate and Earth-system models, parameterizations and emulators, downscaling, extremes, observations and remote sensing, reanalysis and data assimilation, weather and subseasonal prediction when relevant to climate, uncertainty, interpretability, causal and scientific discovery, and emerging machine-learning methods with clear implications for climate research.
+Coverage includes climate and Earth system models, parameterizations and emulators, downscaling, extremes, observations and remote sensing, reanalysis and data assimilation, weather and subseasonal prediction when relevant to climate, uncertainty, interpretability, causal and scientific discovery, and emerging machine learning methods with clear implications for climate research.
 
 ## Editorial approach
 
@@ -21,6 +21,6 @@ The emphasis is synthesis rather than hype, benchmark chasing, or exhaustive pap
 
 ## Who runs it
 
-The publication is run by Evan Wellmeyer, a PhD researcher in atmospheric science working at the intersection of machine learning and climate modeling. His research interests include machine learning for climate-model analysis and learning forced climate responses, particularly precipitation change.
+The publication is run by Evan Wellmeyer, a PhD researcher in atmospheric science working in machine learning and climate modeling.
 
-AI × Climate is a publication rather than a personal portfolio. Its aim is to make technically serious developments easier to understand, compare, and evaluate.
+AI × Climate is a publication; Its aim is to make technically serious developments easier to understand, compare, and evaluate.
